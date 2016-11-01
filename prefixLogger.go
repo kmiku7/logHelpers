@@ -10,7 +10,7 @@ func NewPrefixLogger(prefix string, logger Logger) Logger {
 }
 
 func (s *prefixLogger) Debug(args ...interface{}) {
-	s.logger.Debug(s.prefix, args...)
+	s.logger.Debug(append([]interface{}{s.prefix}, args...)...)
 }
 
 func (s *prefixLogger) Debugf(format string, args ...interface{}) {
@@ -18,32 +18,32 @@ func (s *prefixLogger) Debugf(format string, args ...interface{}) {
 }
 
 func (s *prefixLogger) Info(args ...interface{}) {
-	s.logger.Debug(s.prefix, args...)
+	s.logger.Info(append([]interface{}{s.prefix}, args...)...)
 }
 
 func (s *prefixLogger) Infof(format string, args ...interface{}) {
-	s.logger.Debugf(s.prefix+" "+format, args...)
+	s.logger.Infof(s.prefix+" "+format, args...)
 }
 
 func (s *prefixLogger) Warning(args ...interface{}) {
-	s.logger.Debug(s.prefix, args...)
+	s.logger.Warning(append([]interface{}{s.prefix}, args...)...)
 }
 
 func (s *prefixLogger) Warningf(format string, args ...interface{}) {
-	s.logger.Debugf(s.prefix+" "+format, args...)
+	s.logger.Warningf(s.prefix+" "+format, args...)
 }
 
 func (s *prefixLogger) Error(args ...interface{}) {
-	s.logger.Debug(s.prefix, args...)
+	s.logger.Error(append([]interface{}{s.prefix}, args...)...)
 }
 
 func (s *prefixLogger) Errorf(format string, args ...interface{}) {
-	s.logger.Debugf(s.prefix+" "+format, args...)
+	s.logger.Errorf(s.prefix+" "+format, args...)
 }
 func (s *prefixLogger) Fatal(args ...interface{}) {
-	s.logger.Debug(s.prefix, args...)
+	s.logger.Fatal(append([]interface{}{s.prefix}, args...)...)
 }
 
 func (s *prefixLogger) Fatalf(format string, args ...interface{}) {
-	s.logger.Debugf(s.prefix+" "+format, args...)
+	s.logger.Fatalf(s.prefix+" "+format, args...)
 }
