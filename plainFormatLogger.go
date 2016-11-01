@@ -16,40 +16,40 @@ func NewPlainFormatLogger(output io.Writer) Logger {
 }
 
 func (s *plainFormatLogger) Debug(args ...interface{}) {
-	s.logger.Print(args)
+	s.logger.Print(args...)
 }
 
 func (s *plainFormatLogger) Debugf(format string, args ...interface{}) {
-	s.logger.Printf(format, args)
+	s.logger.Printf(format, args...)
 }
 
 func (s *plainFormatLogger) Info(args ...interface{}) {
-	s.logger.Print(args)
+	s.logger.Print(args...)
 }
 
 func (s *plainFormatLogger) Infof(format string, args ...interface{}) {
-	s.logger.Printf(format, args)
+	s.logger.Printf(format, args...)
 }
 
 func (s *plainFormatLogger) Warning(args ...interface{}) {
-	s.logger.Print(args)
+	s.logger.Print(args...)
 }
 
 func (s *plainFormatLogger) Warningf(format string, args ...interface{}) {
-	s.logger.Printf(format, args)
+	s.logger.Printf(format, args...)
 }
 
 func (s *plainFormatLogger) Error(args ...interface{}) {
-	s.logger.Print(args)
+	s.logger.Print(args...)
 }
 
 func (s *plainFormatLogger) Errorf(format string, args ...interface{}) {
-	s.logger.Printf(format, args)
+	s.logger.Printf(format, args...)
 }
 func (s *plainFormatLogger) Fatal(args ...interface{}) {
-	s.logger.Print(args)
+	s.logger.Print(args...)
 }
 
 func (s *plainFormatLogger) Fatalf(format string, args ...interface{}) {
-	s.logger.Printf(format, args)
+	s.logger.Printf(format, args...)
 }
