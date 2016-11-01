@@ -1,49 +1,49 @@
 package logHelpers
 
-type prefixLogger struct {
+type prefixLoggerWrapper struct {
 	logger Logger
 	prefix string
 }
 
-func NewPrefixLogger(prefix string, logger Logger) Logger {
-	return &prefixLogger{logger, prefix}
+func NewPrefixLoggerWrapper(prefix string, logger Logger) Logger {
+	return &prefixLoggerWrapper{logger, prefix}
 }
 
-func (s *prefixLogger) Debug(args ...interface{}) {
+func (s *prefixLoggerWrapper) Debug(args ...interface{}) {
 	s.logger.Debug(append([]interface{}{s.prefix}, args...)...)
 }
 
-func (s *prefixLogger) Debugf(format string, args ...interface{}) {
+func (s *prefixLoggerWrapper) Debugf(format string, args ...interface{}) {
 	s.logger.Debugf(s.prefix+" "+format, args...)
 }
 
-func (s *prefixLogger) Info(args ...interface{}) {
+func (s *prefixLoggerWrapper) Info(args ...interface{}) {
 	s.logger.Info(append([]interface{}{s.prefix}, args...)...)
 }
 
-func (s *prefixLogger) Infof(format string, args ...interface{}) {
+func (s *prefixLoggerWrapper) Infof(format string, args ...interface{}) {
 	s.logger.Infof(s.prefix+" "+format, args...)
 }
 
-func (s *prefixLogger) Warning(args ...interface{}) {
+func (s *prefixLoggerWrapper) Warning(args ...interface{}) {
 	s.logger.Warning(append([]interface{}{s.prefix}, args...)...)
 }
 
-func (s *prefixLogger) Warningf(format string, args ...interface{}) {
+func (s *prefixLoggerWrapper) Warningf(format string, args ...interface{}) {
 	s.logger.Warningf(s.prefix+" "+format, args...)
 }
 
-func (s *prefixLogger) Error(args ...interface{}) {
+func (s *prefixLoggerWrapper) Error(args ...interface{}) {
 	s.logger.Error(append([]interface{}{s.prefix}, args...)...)
 }
 
-func (s *prefixLogger) Errorf(format string, args ...interface{}) {
+func (s *prefixLoggerWrapper) Errorf(format string, args ...interface{}) {
 	s.logger.Errorf(s.prefix+" "+format, args...)
 }
-func (s *prefixLogger) Fatal(args ...interface{}) {
+func (s *prefixLoggerWrapper) Fatal(args ...interface{}) {
 	s.logger.Fatal(append([]interface{}{s.prefix}, args...)...)
 }
 
-func (s *prefixLogger) Fatalf(format string, args ...interface{}) {
+func (s *prefixLoggerWrapper) Fatalf(format string, args ...interface{}) {
 	s.logger.Fatalf(s.prefix+" "+format, args...)
 }
